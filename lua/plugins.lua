@@ -2,10 +2,33 @@ local use = require("packer").use
 require("packer").startup(function()
     use({ "wbthomason/packer.nvim" }) -- Package manager
     use({ "numToStr/Comment.nvim" }) -- "gc" to comment visual regions/lines
-    use({ "Pocco81/AutoSave.nvim" })
-    use({ "windwp/nvim-autopairs" })
+    use({
+        "Pocco81/AutoSave.nvim",
+        config = function()
+            require("autosave").setup({
+                execution_message = "",
+            })
+        end
+    })
+    use({
+        "windwp/nvim-autopairs",
+        event = 'InsertEnter',
+        config = function()
+            require('plugins.autopairs').load()
+        end
+    })
     use({ "akinsho/bufferline.nvim" })
-    use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+    use({
+        "nvim-telescope/telescope.nvim",
+        cmd = "Telescope",
+        module = 'telescope.finders',
+        requires = { 
+            "nvim-lua/plenary.nvim"
+        },
+        config = function()
+            require('plugins.telescope')
+        end
+    })
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
     use({ "RRethy/nvim-base16" })
     use({ "tjdevries/express_line.nvim", requires = { "lewis6991/gitsigns.nvim" } })

@@ -13,8 +13,3 @@ require("plugins.bufferline").load()
 require("keybinds").load()
 require("plugins.whichkey").load()
 require("plugins.gitsigns").load()
-require("plugins.telescope").load()
-require("plugins.autopairs").load()
-require("autosave").setup({
-    execution_message = "",
-})
