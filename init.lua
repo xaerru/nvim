@@ -26,14 +26,12 @@ require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter-textobjects'
 end)
 
-vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 vim.cmd [[ colorscheme base16-default-dark ]]
 local options = require("options")
 options.load()
 require('statusline')
 require('plugins.bufferline').load()
+require('keybinds').load()
 require('plugins.gitsigns').load()
 require('plugins.treesitter').load()
 require('plugins.whichkey').load()
