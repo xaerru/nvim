@@ -13,8 +13,8 @@ local config = {
     },
 }
 
-M.load = function() 
-    require('nvim-autopairs').setup(config)
+M.load = function()
+    require("nvim-autopairs").setup(config)
 end
 
 return M

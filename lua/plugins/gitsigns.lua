@@ -2,7 +2,12 @@ local M = {}
 
 local config = {
     signs = {
-        add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+        add = {
+            hl = "GitSignsAdd",
+            text = "▎",
+            numhl = "GitSignsAddNr",
+            linehl = "GitSignsAddLn",
+        },
         change = { hl = "GitSignsChange", text = "▎", linehl = "GitSignsChangeLn" },
         delete = { hl = "GitSignsDelete", text = "契", linehl = "GitSignsDeleteLn" },
         topdelete = { hl = "GitSignsDelete", text = "契", linehl = "GitSignsDeleteLn" },
@@ -37,8 +42,8 @@ local config = {
     },
 }
 
-M.load = function() 
-    require('gitsigns').setup(config)
+M.load = function()
+    require("gitsigns").setup(config)
 end
 
 return M

@@ -15,8 +15,8 @@ config = {
     },
 }
 
-M.load = function ()
-    require('bufferline').setup(config)
+M.load = function()
+    require("bufferline").setup(config)
 end
 
 return M
