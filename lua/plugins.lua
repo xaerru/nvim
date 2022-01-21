@@ -24,6 +24,13 @@ require("packer").startup(function()
         end,
     })
     use({
+        "kyazdani42/nvim-tree.lua",
+        cmd = "NvimTreeToggle",
+        config = function()
+            require("plugins.nvimtree").load()
+        end
+    })
+    use({
         "RRethy/nvim-base16",
         event = "VimEnter",
         config = function()
