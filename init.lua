@@ -18,6 +18,7 @@ require('packer').startup(function()
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- UI to select things (files, grep results, open buffers...)
+  use 'akinsho/bufferline.nvim'
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'RRethy/nvim-base16'
@@ -45,6 +46,7 @@ vim.cmd [[ colorscheme base16-default-dark ]]
 local options = require("options")
 options.load()
 require('statusline')
+require('plugins.bufferline').load()
 require('plugins.gitsigns').load()
 require('plugins.treesitter').load()
 require('plugins.whichkey').load()
