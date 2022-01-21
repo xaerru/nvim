@@ -23,13 +23,15 @@ require("packer").startup(function()
         cmd = "Telescope",
         module = 'telescope.finders',
         requires = { 
-            "nvim-lua/plenary.nvim"
+            "nvim-lua/plenary.nvim",
+            {
+                "nvim-telescope/telescope-fzf-native.nvim", run = "make"
+            }
         },
         config = function()
             require('plugins.telescope')
         end
     })
-    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
     use({ "RRethy/nvim-base16" })
     use({ "tjdevries/express_line.nvim", requires = { "lewis6991/gitsigns.nvim" } })
     -- Add indentation guides even on blank lines
