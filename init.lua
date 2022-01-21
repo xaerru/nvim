@@ -2,8 +2,7 @@ local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.n
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     vim.fn.execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
 end
-require("plugins")
 
-local options = require("options")
-options.load()
+require('options').load()
 require("keybinds").load()
+require("plugins")
