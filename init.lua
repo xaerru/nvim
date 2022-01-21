@@ -4,7 +4,6 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 require("plugins")
 
-vim.cmd([[ colorscheme base16-default-dark ]])
 local options = require("options")
 options.load()
 require("plugins.treesitter").load()
