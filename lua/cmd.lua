@@ -51,6 +51,8 @@ end
 
 function M.repl_cmd()
     local cmd_table = {
+        c = "cling",
+        cpp = "cling",
         haskell = "ghci " .. file,
         java = "jshell",
         javascript = "node",
