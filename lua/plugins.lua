@@ -1,16 +1,7 @@
 local use = require("packer").use
 require("packer").startup(function()
     use({ "wbthomason/packer.nvim" }) -- Package manager
-    use({ "numToStr/Comment.nvim" }) -- "gc" to comment visual regions/lines
     use({ "nvim-lua/plenary.nvim" })
-    use({
-        "Pocco81/AutoSave.nvim",
-        config = function()
-            require("autosave").setup({
-                execution_message = "",
-            })
-        end
-    })
     use({
         "windwp/nvim-autopairs",
         event = 'InsertEnter',
@@ -60,10 +51,26 @@ require("packer").startup(function()
             require('plugins.treesitter').load()
         end
     })
-    use({ "nvim-treesitter/nvim-treesitter-textobjects" })
+    use({
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter"
+    })
+    use({
+        "Pocco81/AutoSave.nvim",
+        config = function()
+            require("autosave").setup({
+                execution_message = "",
+            })
+        end,
+        after = "nvim-treesitter"
+    })
+    use({
+        "numToStr/Comment.nvim",
+        after = "nvim-treesitter"
+    })
     use({
         "folke/which-key.nvim",
-        after = "bufferline.nvim",
+        after = "nvim-treesitter",
         config = function()
             require('plugins.whichkey').load()
         end
