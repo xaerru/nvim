@@ -21,7 +21,7 @@ local default_wk = {
         g = {
             {
                 name = "git",
-                l = { "<CMD>lua require('_nvlx.terminal').lazygit()<CR>", "lazygit" },
+                l = { "<CMD>lua require('terminal').lazygit()<CR>", "lazygit" },
                 R = "Reset Buffer",
                 b = "Blame Line",
                 p = "Preview Hunk",
@@ -75,7 +75,7 @@ local default_wk = {
         s = {
             {
                 name = "session",
-                a = { "<CMD>:lua require('_nvlx.sessions').sload()<CR>", "Session Finder" },
+                a = { "<CMD>:lua require('sessions').sload()<CR>", "Session Finder" },
                 c = {
                     "<CMD>:lua require('persistence').load_current()<CR>",
                     "Restore Current Directory Session",
@@ -106,10 +106,10 @@ local default_wk = {
         r = {
             {
                 name = "run",
-                f = { "<CMD>lua require('_nvlx.terminal').run_file()<CR>", "File" },
-                r = { "<CMD>lua require('_nvlx.terminal').run_repl()<CR>", "REPL" },
+                f = { "<CMD>lua require('terminal').run_file()<CR>", "File" },
+                r = { "<CMD>lua require('terminal').run_repl()<CR>", "REPL" },
                 p = {
-                    "<CMD>lua require('_nvlx.terminal').run_project()<CR>",
+                    "<CMD>lua require('terminal').run_project()<CR>",
                     "Project",
                 },
             },
