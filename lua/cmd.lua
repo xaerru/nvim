@@ -16,13 +16,13 @@ end
 
 function M.run_file_cmd()
     local cmd_table = {
-        c = "gcc " .. file .. " && " .. "./a.out" .. " && /bin/rm ./a.out",
-        cpp = "g++ -std=c++17  " .. file .. " && " .. "./a.out" .. " && /bin/rm ./a.out",
+        c = "gcc " .. file .. " && " .. "./a.out" .. " && rm ./a.out",
+        cpp = "g++ -std=c++17  " .. file .. " && " .. "./a.out" .. " && rm ./a.out",
         haskell = "ghc -dynamic "
             .. file
             .. " && ./"
             .. name
-            .. "&& /bin/rm "
+            .. "&& rm "
             .. name
             .. " "
             .. name
@@ -35,14 +35,14 @@ function M.run_file_cmd()
         perl = "perl " .. file,
         python = "python3 " .. file,
         ruby = "ruby " .. file,
-        rust = "rustc " .. file .. " && ./" .. name .. "&& /bin/rm " .. name,
+        rust = "rustc " .. file .. " && ./" .. name .. "&& rm " .. name,
         sh = "bash " .. file,
         typescript = "tsc "
             .. file
             .. "&& node "
             .. noext
             .. ".js"
-            .. "&& /bin/rm "
+            .. "&& rm "
             .. noext
             .. ".js",
     }
