@@ -21,7 +21,7 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'RRethy/nvim-base16'
-  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+  use { 'tjdevries/express_line.nvim', requires = {'lewis6991/gitsigns.nvim'} }
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
   -- Add git related info in the signs columns and popups
@@ -37,18 +37,46 @@ require('packer').startup(function()
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 end)
 
+vim.cmd [[ colorscheme base16-default-dark ]]
 local options = require("options")
-options.load()
-
---Set statusbar
-require('lualine').setup {
-  options = {
-    icons_enabled = false,
-    theme = 'codedark',
-    component_separators = '|',
-    section_separators = '',
-  },
+require('gitsigns').setup {
+    signs = {
+        add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+        change = { hl = "GitSignsChange", text = "▎", linehl = "GitSignsChangeLn" },
+        delete = { hl = "GitSignsDelete", text = "契", linehl = "GitSignsDeleteLn" },
+        topdelete = { hl = "GitSignsDelete", text = "契", linehl = "GitSignsDeleteLn" },
+        changedelete = { hl = "GitSignsChange", text = "▎", linehl = "GitSignsChangeLn" },
+    },
+    keymaps = {
+        noremap = true,
+        ["n ]c"] = {
+            expr = true,
+            "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'",
+        },
+        ["n [c"] = {
+            expr = true,
+            "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'",
+        },
+        ["n <leader>gs"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
+        ["v <leader>gs"] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+        ["n <leader>gu"] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
+        ["n <leader>gr"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
+        ["v <leader>gr"] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+        ["n <leader>gR"] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
+        ["n <leader>gp"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
+        ["n <leader>gb"] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+        -- Text objects
+        ["o ih"] = { silent = true, ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>' },
+        ["x ih"] = { silent = true, ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>' },
+    },
+    preview_config = {
+        border = "single",
+        style = "minimal",
+        relative = "cursor",
+    },
 }
+local statusline = require("statusline")
+options.load()
 
 -- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
