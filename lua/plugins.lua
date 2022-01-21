@@ -53,6 +53,13 @@ require("packer").startup(function()
         end,
     })
     use({
+        "akinsho/toggleterm.nvim",
+        config = function()
+            require('plugins.toggleterm').load()
+        end,
+        after = "bufferline.nvim"
+    })
+    use({
         "nvim-treesitter/nvim-treesitter",
         after = "plenary.nvim",
         config = function()
