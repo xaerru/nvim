@@ -39,6 +39,9 @@ require('packer').startup(function()
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 end)
 
+local options = require("options")
+options.load()
+
 --Set highlight on search
 vim.o.hlsearch = false
 
