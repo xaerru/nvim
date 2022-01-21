@@ -29,12 +29,13 @@ end)
 vim.cmd [[ colorscheme base16-default-dark ]]
 local options = require("options")
 options.load()
+require('plugins.treesitter').load()
 require('statusline')
 require('plugins.bufferline').load()
 require('keybinds').load()
-require('plugins.gitsigns').load()
-require('plugins.treesitter').load()
 require('plugins.whichkey').load()
+require('plugins.gitsigns').load()
+require('plugins.telescope').load()
 require('autosave').setup({
   execution_message=''
 })
