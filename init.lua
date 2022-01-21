@@ -10,6 +10,7 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'Pocco81/AutoSave.nvim'
+  use 'windwp/nvim-autopairs'
   use 'akinsho/bufferline.nvim'
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -36,6 +37,7 @@ require('keybinds').load()
 require('plugins.whichkey').load()
 require('plugins.gitsigns').load()
 require('plugins.telescope').load()
+require('plugins.autopairs').load()
 require('autosave').setup({
   execution_message=''
 })
