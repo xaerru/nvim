@@ -71,6 +71,13 @@ require("packer").startup(function()
         after = "nvim-treesitter",
     })
     use({
+        "norcalli/nvim-colorizer.lua",
+        after = "nvim-treesitter",
+        config = function()
+            require('colorizer').setup()
+        end
+    })
+    use({
         "Pocco81/AutoSave.nvim",
         config = function()
             require("autosave").setup({
