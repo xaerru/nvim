@@ -1,6 +1,6 @@
 local M = {}
 
-config = {
+local config = {
     highlight = {
         enable = true,
     },

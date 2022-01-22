@@ -1,6 +1,6 @@
 local M = {}
 
-config = {
+local config = {
     options = {
         numbers = function(a)
             return a.raise(a.ordinal)
