@@ -3,6 +3,19 @@ require("packer").startup(function()
     use({ "wbthomason/packer.nvim" }) -- Package manager
     use({ "nvim-lua/plenary.nvim" })
     use({
+        "neovim/nvim-lspconfig",
+        module = "lspconfig",
+        setup = function()
+            vim.defer_fn(function()
+                require('packer').loader("nvim-lspconfig")
+                vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
+            end, 0)
+        end,
+        config = function()
+            require("lsp")
+        end
+    })
+    use({
         "windwp/nvim-autopairs",
         event = "InsertEnter",
         config = function()
