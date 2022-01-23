@@ -52,6 +52,7 @@ local config = {
         { name = "path" },
         { name = "rg" },
         { name = "calc" },
+        { name = "fuzzy_path" },
         {
             name = "tmux",
             option = {
@@ -62,7 +63,8 @@ local config = {
 }
 cmp.setup.cmdline(':', {
   sources = {
-    { name = 'cmdline' }
+    { name = 'cmdline' },
+    { name = 'fuzzy_path' }
   }
 })
 cmp.setup.cmdline('/', {

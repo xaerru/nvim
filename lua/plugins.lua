@@ -7,69 +7,74 @@ require("packer").startup(function()
         module = "lspconfig",
         setup = function()
             vim.defer_fn(function()
-                require('packer').loader("nvim-lspconfig")
-                vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
+                require("packer").loader("nvim-lspconfig")
+                vim.cmd('if &ft == "packer" | echo "" | else | silent! e %')
             end, 0)
         end,
         config = function()
             require("lsp")
-        end
+        end,
     })
     use({
         "rafamadriz/friendly-snippets",
-        event = "InsertEnter",
+        event = "CursorHold",
     })
     use({
         "L3MON4D3/LuaSnip",
         after = "friendly-snippets",
-        config = function ()
-            local default = {history = true, updateevents = "TextChanged,TextChangedI"}
+        config = function()
+            local default = { history = true, updateevents = "TextChanged,TextChangedI" }
             require("luasnip").config.set_config(default)
             require("luasnip/loaders/from_vscode").load()
-        end
+        end,
     })
     use({
         "hrsh7th/nvim-cmp",
         after = "LuaSnip",
         config = function()
             require("plugins.cmp").load()
-        end
+        end,
     })
     use({
         "hrsh7th/cmp-nvim-lsp",
-        after = "nvim-cmp"
+        after = "nvim-cmp",
     })
     use({
         "saadparwaiz1/cmp_luasnip",
-        after = "cmp-nvim-lsp"
+        after = "cmp-nvim-lsp",
     })
     use({
         "hrsh7th/cmp-path",
-        after = "cmp_luasnip"
+        after = "cmp_luasnip",
     })
     use({
         "hrsh7th/cmp-buffer",
-        after = "cmp-path"
+        after = "cmp-path",
     })
     use({
         "hrsh7th/cmp-nvim-lua",
-        after = "cmp-buffer"
+        after = "cmp-buffer",
     })
     use({
         "lukas-reineke/cmp-rg",
-        after = "cmp-nvim-lua"
+        after = "cmp-nvim-lua",
     })
     use({
         "andersevenrud/cmp-tmux",
-        after = "cmp-rg"
+        after = "cmp-rg",
     })
     use({
         "hrsh7th/cmp-cmdline",
-        after = "cmp-tmux"
+        event = "CmdlineEnter",
     })
     use({
         "hrsh7th/cmp-calc",
-        after = "cmp-cmdline"
+        after = "cmp-tmux",
+    })
+    use({
+        "tzachar/cmp-fuzzy-path",
+        requires = { "tzachar/fuzzy.nvim" },
+        after = "cmp-calc"
     })
     use({
         "windwp/nvim-autopairs",
@@ -97,7 +102,7 @@ require("packer").startup(function()
         cmd = "NvimTreeToggle",
         config = function()
             require("plugins.nvimtree").load()
-        end
+        end,
     })
     use({
         "RRethy/nvim-base16",
@@ -124,9 +129,9 @@ require("packer").startup(function()
     use({
         "akinsho/toggleterm.nvim",
         config = function()
-            require('plugins.toggleterm').load()
+            require("plugins.toggleterm").load()
         end,
-        after = "bufferline.nvim"
+        after = "bufferline.nvim",
     })
     use({
         "nvim-treesitter/nvim-treesitter",
@@ -143,8 +148,8 @@ require("packer").startup(function()
         "norcalli/nvim-colorizer.lua",
         after = "nvim-treesitter",
         config = function()
-            require('colorizer').setup()
-        end
+            require("colorizer").setup()
+        end,
     })
     use({
         "Pocco81/AutoSave.nvim",
