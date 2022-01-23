@@ -56,6 +56,18 @@ require("packer").startup(function()
         after = "cmp-buffer"
     })
     use({
+        "lukas-reineke/cmp-rg",
+        after = "cmp-nvim-lua"
+    })
+    use({
+        "andersevenrud/cmp-tmux",
+        after = "cmp-rg"
+    })
+    use({
+        "hrsh7th/cmp-cmdline",
+        after = "cmp-tmux"
+    })
+    use({
         "windwp/nvim-autopairs",
         event = "InsertEnter",
         config = function()
