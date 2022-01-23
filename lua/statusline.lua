@@ -3,7 +3,6 @@ local generator = function()
     local sections = require("el.sections")
     local extensions = require("el.extensions")
     local subscribe = require("el.subscribe")
-    local helper = require("el.helper")
     local segments = {
         extensions.mode,
         " ",
