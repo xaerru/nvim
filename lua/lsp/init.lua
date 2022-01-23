@@ -16,7 +16,22 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>so', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
-
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.preselectSupport = true
+capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+   properties = {
+      "documentation",
+      "detail",
+      "additionalTextEdits",
+   },
+}
 -- Enable the following language servers
 local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
 for _, lsp in ipairs(servers) do

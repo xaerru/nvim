@@ -16,6 +16,33 @@ require("packer").startup(function()
         end
     })
     use({
+        "rafamadriz/friendly-snippets",
+        event = "InsertEnter",
+    })
+    use({
+        "L3MON4D3/LuaSnip",
+        after = "friendly-snippets",
+        config = function ()
+            local default = {history = true, updateevents = "TextChanged,TextChangedI"}
+            require("luasnip").config.set_config(default)
+        end
+    })
+    use({
+        "hrsh7th/nvim-cmp",
+        after = "LuaSnip",
+        config = function()
+            require("plugins.cmp").load()
+        end
+    })
+    use({
+        "hrsh7th/cmp-nvim-lsp",
+        after = "nvim-cmp"
+    })
+    use({
+        "saadparwaiz1/cmp_luasnip",
+        after = "cmp-nvim-lsp"
+    })
+    use({
         "windwp/nvim-autopairs",
         event = "InsertEnter",
         config = function()
