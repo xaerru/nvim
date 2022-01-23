@@ -16,6 +16,13 @@ require("packer").startup(function()
         end,
     })
     use({
+        "folke/trouble.nvim",
+        after = "nvim-lspconfig",
+        config = function ()
+            require('trouble').setup({})
+        end
+    })
+    use({
         "rafamadriz/friendly-snippets",
         event = "CursorHold",
     })
