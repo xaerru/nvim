@@ -18,13 +18,13 @@ require("packer").startup(function()
     use({
         "folke/trouble.nvim",
         after = "nvim-lspconfig",
-        config = function ()
-            require('plugins.trouble').load()
-        end
+        config = function()
+            require("plugins.trouble").load()
+        end,
     })
     use({
-      'weilbith/nvim-code-action-menu',
-      cmd = 'CodeActionMenu',
+        "weilbith/nvim-code-action-menu",
+        cmd = "CodeActionMenu",
     })
     use({
         "rafamadriz/friendly-snippets",
@@ -85,7 +85,7 @@ require("packer").startup(function()
     use({
         "tzachar/cmp-fuzzy-path",
         requires = { "tzachar/fuzzy.nvim" },
-        after = "cmp-calc"
+        after = "cmp-calc",
     })
     use({
         "windwp/nvim-autopairs",
@@ -199,5 +199,27 @@ require("packer").startup(function()
     use({
         "lukas-reineke/indent-blankline.nvim",
         after = "nvim-base16",
+    })
+    -- TODO: Make bufferline autosave the order and persist the not saved buffers
+    use({
+        "rmagatti/auto-session",
+        after = "nvim-base16",
+        config = function()
+            require("auto-session").setup({
+                auto_save_enabled = true,
+                auto_restore_enabled = true,
+                auto_session_suppress_dirs = { "~/" },
+            })
+        end,
+    })
+    use({
+        "rmagatti/session-lens",
+        requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+        cmd = ":SearchSession",
+        config = function()
+            require("session-lens").setup({
+                path_display={'shorten'}
+            })
+        end,
     })
 end)

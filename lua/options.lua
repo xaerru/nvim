@@ -42,6 +42,7 @@ local default_settings = {
     undoreload = 10000,
     updatetime = 0,
     wrap = false,
+    sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,globals"
 }
 
 function M.define(settings)
