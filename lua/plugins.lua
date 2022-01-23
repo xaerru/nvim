@@ -23,6 +23,10 @@ require("packer").startup(function()
         end
     })
     use({
+      'weilbith/nvim-code-action-menu',
+      cmd = 'CodeActionMenu',
+    })
+    use({
         "rafamadriz/friendly-snippets",
         event = "CursorHold",
     })
