@@ -25,6 +25,7 @@ require("packer").startup(function()
         config = function ()
             local default = {history = true, updateevents = "TextChanged,TextChangedI"}
             require("luasnip").config.set_config(default)
+            require("luasnip/loaders/from_vscode").load()
         end
     })
     use({
