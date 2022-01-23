@@ -68,6 +68,10 @@ require("packer").startup(function()
         after = "cmp-tmux"
     })
     use({
+        "hrsh7th/cmp-calc",
+        after = "cmp-cmdline"
+    })
+    use({
         "windwp/nvim-autopairs",
         event = "InsertEnter",
         config = function()

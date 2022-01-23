@@ -51,6 +51,7 @@ local config = {
         { name = "nvim_lua" },
         { name = "path" },
         { name = "rg" },
+        { name = "calc" },
         {
             name = "tmux",
             option = {
