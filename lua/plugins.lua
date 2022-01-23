@@ -44,6 +44,18 @@ require("packer").startup(function()
         after = "cmp-nvim-lsp"
     })
     use({
+        "hrsh7th/cmp-path",
+        after = "cmp_luasnip"
+    })
+    use({
+        "hrsh7th/cmp-buffer",
+        after = "cmp-path"
+    })
+    use({
+        "hrsh7th/cmp-nvim-lua",
+        after = "cmp-buffer"
+    })
+    use({
         "windwp/nvim-autopairs",
         event = "InsertEnter",
         config = function()
