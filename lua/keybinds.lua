@@ -34,9 +34,13 @@ local default_keybinds = {
         ["<CR>"] = ":noh<CR>",
     },
 
-    object = {},
+    object = {
+        ["im"] = ":lua require('tsht').nodes()<CR>",
+    },
 
     visual = {
+        ["im"] = ":lua require('tsht').nodes()<CR>",
+        ["<C-e>"] = "<ESC>",
         ["<"] = "<gv",
         [">"] = ">gv",
     },

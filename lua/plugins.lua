@@ -156,6 +156,13 @@ require("packer").startup(function()
         after = "nvim-treesitter",
     })
     use({
+        "mfussenegger/nvim-ts-hint-textobject",
+        config = function()
+            require("tsht").config.hint_keys = { "a", "o", "e", "i", "d", "h", "t", "n" }
+        end,
+        after = "nvim-treesitter",
+    })
+    use({
         "norcalli/nvim-colorizer.lua",
         after = "nvim-treesitter",
         config = function()
