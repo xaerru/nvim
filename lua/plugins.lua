@@ -19,7 +19,7 @@ require("packer").startup(function()
         "folke/trouble.nvim",
         after = "nvim-lspconfig",
         config = function ()
-            require('plugins.trouble')
+            require('plugins.trouble').load()
         end
     })
     use({
