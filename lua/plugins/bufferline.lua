@@ -1,5 +1,7 @@
 local M = {}
 
+local a = 1
+
 local config = {
     options = {
         numbers = function(a)
@@ -12,6 +14,22 @@ local config = {
         offsets = { { filetype = "NvimTree", text_align = "left" } },
         show_buffer_close_icons = false,
         show_close_icon = false,
+    },
+        highlights = {
+        background = { guibg = "#383838", guifg = "#b8b8b8" },
+        fill = { guibg = "#282828", guifg = "#D8DEE9" },
+        separator = { guibg = "#383838", guifg = "#383838" },
+        separator_selected = { guibg = "#282828", guifg = "#282828" },
+        indicator_selected = { guibg = "#383838", guifg = "#383838" },
+        modified = { guibg = "#383838" },
+        diagnostic = { guibg = "#383838", guifg = "#7cafc2" },
+        warning = { guibg = "#383838", guifg="#b8b8b8" },
+        warning_diagnostic = { guibg = "#383838", guifg = "#f7ca88" },
+        warning_diagnostic_selected = { guifg = "#f7ca88" },
+        error = { guibg = "#383838", guifg="#b8b8b8" },
+        error_diagnostic = { guibg = "#383838", guifg = "#ab4642" },
+        info = { guibg = "#383838", guifg="#b8b8b8" },
+        info_diagnostic = { guibg = "#383838", guifg = "#7cafc2" }
     },
 }
 
