@@ -1,7 +1,5 @@
 local M = {}
 
-local a = 1
-
 local config = {
     options = {
         numbers = function(a)
@@ -29,7 +27,9 @@ local config = {
         error = { guibg = "#383838", guifg="#b8b8b8" },
         error_diagnostic = { guibg = "#383838", guifg = "#ab4642" },
         info = { guibg = "#383838", guifg="#b8b8b8" },
-        info_diagnostic = { guibg = "#383838", guifg = "#7cafc2" }
+        info_diagnostic = { guibg = "#383838", guifg = "#7cafc2" },
+        hint = { guibg = "#383838", guifg="#b8b8b8" },
+        hint_diagnostic = { guibg = "#383838", guifg = "#ba8baf" }
     },
 }
 
