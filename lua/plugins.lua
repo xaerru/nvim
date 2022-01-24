@@ -1,4 +1,5 @@
 local use = require("packer").use
+
 require("packer").startup(function()
     use({ "wbthomason/packer.nvim" }) -- Package manager
     use({ "nvim-lua/plenary.nvim" })
@@ -105,7 +106,7 @@ require("packer").startup(function()
             },
         },
         config = function()
-            require("plugins.telescope")
+            require("plugins.telescope").load()
         end,
     })
     use({
@@ -209,16 +210,6 @@ require("packer").startup(function()
                 auto_save_enabled = true,
                 auto_restore_enabled = true,
                 auto_session_suppress_dirs = { "~/" },
-            })
-        end,
-    })
-    use({
-        "rmagatti/session-lens",
-        requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
-        cmd = ":SearchSession",
-        config = function()
-            require("session-lens").setup({
-                path_display={'shorten'}
             })
         end,
     })
