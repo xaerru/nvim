@@ -37,14 +37,7 @@ function M.run_file_cmd()
         ruby = "ruby " .. file,
         rust = "rustc " .. file .. " && ./" .. name .. "&& rm " .. name,
         sh = "bash " .. file,
-        typescript = "tsc "
-            .. file
-            .. "&& node "
-            .. noext
-            .. ".js"
-            .. "&& rm "
-            .. noext
-            .. ".js",
+        typescript = "tsc " .. file .. "&& node " .. noext .. ".js" .. "&& rm " .. noext .. ".js",
     }
     return cmd_table[vim.fn.eval("&filetype")]
 end

@@ -13,7 +13,7 @@ local config = {
         show_buffer_close_icons = false,
         show_close_icon = false,
     },
-        highlights = {
+    highlights = {
         background = { guibg = "#282828", guifg = "#b8b8b8" },
         fill = { guibg = "#383838", guifg = "#D8DEE9" },
         separator = { guibg = "#282828", guifg = "#282828" },
@@ -21,15 +21,15 @@ local config = {
         indicator_selected = { guibg = "#282828", guifg = "#282828" },
         modified = { guibg = "#282828" },
         diagnostic = { guibg = "#282828", guifg = "#7cafc2" },
-        warning = { guibg = "#282828", guifg="#b8b8b8" },
+        warning = { guibg = "#282828", guifg = "#b8b8b8" },
         warning_diagnostic = { guibg = "#282828", guifg = "#f7ca88" },
         warning_diagnostic_selected = { guifg = "#f7ca88" },
-        error = { guibg = "#282828", guifg="#b8b8b8" },
+        error = { guibg = "#282828", guifg = "#b8b8b8" },
         error_diagnostic = { guibg = "#282828", guifg = "#ab4642" },
-        info = { guibg = "#282828", guifg="#b8b8b8" },
+        info = { guibg = "#282828", guifg = "#b8b8b8" },
         info_diagnostic = { guibg = "#282828", guifg = "#7cafc2" },
-        hint = { guibg = "#282828", guifg="#b8b8b8" },
-        hint_diagnostic = { guibg = "#282828", guifg = "#ba8baf" }
+        hint = { guibg = "#282828", guifg = "#b8b8b8" },
+        hint_diagnostic = { guibg = "#282828", guifg = "#ba8baf" },
     },
 }
 

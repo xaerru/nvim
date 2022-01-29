@@ -59,15 +59,15 @@ local config = {
         },
     },
 }
-cmp.setup.cmdline(':', {
-  sources = {
-    { name = 'cmdline' },
-  }
+cmp.setup.cmdline(":", {
+    sources = {
+        { name = "cmdline" },
+    },
 })
-cmp.setup.cmdline('/', {
-  sources = {
-    { name = 'buffer' }
-  }
+cmp.setup.cmdline("/", {
+    sources = {
+        { name = "buffer" },
+    },
 })
 M.load = function()
     cmp.setup(config)

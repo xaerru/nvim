@@ -26,7 +26,7 @@ local config = {
 }
 
 M.load = function()
-    require('toggleterm').setup(config)
+    require("toggleterm").setup(config)
 end
 
 return M
