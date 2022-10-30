@@ -171,10 +171,12 @@ require("packer").startup(function()
         end,
     })
     use({
-        "Pocco81/AutoSave.nvim",
+        "Pocco81/auto-save.nvim",
         config = function()
-            require("autosave").setup({
-                execution_message = "",
+            require("auto-save").setup({
+                execution_message = {
+                    message = "" 
+                },
             })
         end,
         after = "nvim-treesitter",
