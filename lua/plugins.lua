@@ -186,6 +186,10 @@ require("packer").startup(function()
         after = "nvim-treesitter",
     })
     use({
+        "chaoren/vim-wordmotion",
+        after = "nvim-treesitter",
+    })
+    use({
         "folke/which-key.nvim",
         after = "nvim-treesitter",
         config = function()
