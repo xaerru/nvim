@@ -1,6 +1,7 @@
 local M = {}
 
 local config = {
+    ensure_installed = {"c", "lua", "nix", "rust", "cpp"},
     highlight = {
         enable = true,
     },
