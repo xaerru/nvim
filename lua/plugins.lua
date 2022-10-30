@@ -174,6 +174,7 @@ require("packer").startup(function()
         "Pocco81/auto-save.nvim",
         config = function()
             require("auto-save").setup({
+                trigger_events = { "InsertLeave", "CursorHold", "FocusLost" },
                 execution_message = {
                     message = ""
                 },
