@@ -7,6 +7,7 @@ require("packer").startup(function()
         "neovim/nvim-lspconfig",
         module = "lspconfig",
         setup = function()
+            -- Reason for neovim default start screen/splash screen disappearing
             vim.defer_fn(function()
                 require("packer").loader("nvim-lspconfig")
                 vim.cmd('if &ft == "packer" | echo "" | else | silent! e %')
@@ -29,7 +30,7 @@ require("packer").startup(function()
     })
     use({
         "rafamadriz/friendly-snippets",
-        event = "CursorHold",
+        after = "nvim-lspconfig",
     })
     use({
         "L3MON4D3/LuaSnip",
@@ -217,6 +218,7 @@ require("packer").startup(function()
                 auto_save_enabled = true,
                 auto_restore_enabled = true,
                 auto_session_suppress_dirs = { "~/" },
+                log_level = "error",
             })
         end,
     })
