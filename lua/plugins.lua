@@ -175,14 +175,14 @@ require("packer").startup(function()
         config = function()
             require("auto-save").setup({
                 execution_message = {
-                    message = "" 
+                    message = ""
                 },
             })
         end,
         after = "nvim-treesitter",
     })
     use({
-        "numToStr/Comment.nvim",
+        "preservim/nerdcommenter",
         after = "nvim-treesitter",
     })
     use({

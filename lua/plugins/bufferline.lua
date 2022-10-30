@@ -19,6 +19,7 @@ local config = {
         separator = { bg = "#282828", fg = "#282828" },
         separator_selected = { bg = "#383838", fg = "#383838" },
         indicator_selected = { bg = "#282828", fg = "#282828" },
+        numbers = { bg = "#282828", fg = "#b8b8b8" },
         modified = { bg = "#282828" },
         diagnostic = { bg = "#282828", fg = "#7cafc2" },
         warning = { bg = "#282828", fg = "#b8b8b8" },
