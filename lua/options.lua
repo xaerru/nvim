@@ -15,6 +15,7 @@ local default_settings = {
     hlsearch = true,
     ignorecase = true,
     inccommand = "nosplit",
+    laststatus = 3,
     lazyredraw = true,
     linebreak = true,
     mouse = "a",
@@ -22,6 +23,7 @@ local default_settings = {
     pumheight = 10,
     ruler = true,
     scrolloff = 8,
+    sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,globals",
     shiftwidth = 4,
     shortmess = vim.opt.shortmess:append("c"),
     showmode = false,
@@ -42,7 +44,6 @@ local default_settings = {
     undoreload = 10000,
     updatetime = 0,
     wrap = false,
-    sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,globals",
 }
 
 function M.define(settings)

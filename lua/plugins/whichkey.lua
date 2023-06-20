@@ -22,12 +22,21 @@ local default_wk = {
             {
                 name = "git",
                 l = { "<CMD>lua require('terminal').lazygit()<CR>", "lazygit" },
-                R = "Reset Buffer",
-                b = "Blame Line",
-                p = "Preview Hunk",
-                r = "Reset Hunk",
-                s = "Stage Hunk",
-                u = "Undo Stage Hunk",
+                R = { "<cmd>lua require'gitsigns'.reset_buffer()<CR>", "Reset Buffer" },
+                b = {"<cmd>lua require'gitsigns'.blame_line(full=true)<CR>","Blame Line"},
+                p = {"<cmd>lua require'gitsigns'.preview_hunk()<CR>","Preview Hunk"},
+                r = {"<cmd>lua require'gitsigns'.reset_hunk()<CR>","Reset Hunk"},
+                s = {"<cmd>lua require'gitsigns'.stage_hunk()<CR>","Stage Hunk"},
+                u = {"<cmd>lua require'gitsigns'.undo_stage_hunk()<CR>","Undo Stage Hunk"},
+                ["n ]c"] = {
+                    expr = true,
+                    "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'",
+                },
+                ["n [c"] = {
+                    expr = true,
+                    "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'",
+                },
+                -- Text objects
             },
         },
 
@@ -119,8 +128,8 @@ local default_wk = {
         g = {
             {
                 name = "git",
-                r = "Reset Hunk",
-                s = "Stage Hunk",
+                r = {"<cmd>lua require'gitsigns'.reset_hunk({vim.fn.line('.'), vim.fn.line('v')})<CR>","Reset Hunk"},
+                s = {"<cmd>lua require'gitsigns'.stage_hunk({vim.fn.line('.'), vim.fn.line('v')})<CR>","Stage Hunk"},
             },
         },
         c = {
@@ -146,7 +155,7 @@ local default_wk = {
         i = {
             {
                 name = "inside",
-                h = "Git Hunk",
+                h = {":<C-U>lua require'gitsigns.actions'.select_hunk()<CR>","Git Hunk", silent=true},
             },
             { mode = "o", prefix = "" },
         },
@@ -155,7 +164,7 @@ local default_wk = {
         i = {
             {
                 name = "inside",
-                h = "Git Hunk",
+                h = {":<C-U>lua require'gitsigns.actions'.select_hunk()<CR>","Git Hunk", silent = true},
             },
             { mode = "x", prefix = "" },
         },
