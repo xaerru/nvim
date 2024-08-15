@@ -51,12 +51,12 @@ local config = {
         { name = "nvim_lua" },
         { name = "path" },
         { name = "calc" },
-        {
-            name = "tmux",
-            option = {
-                all_panes = true,
-            },
-        },
+        --{
+            --name = "tmux",
+            --option = {
+                --all_panes = true,
+            --},
+        --},
     },
 }
 cmp.setup.cmdline(":", {

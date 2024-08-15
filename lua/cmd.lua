@@ -16,8 +16,8 @@ end
 
 function M.run_file_cmd()
     local cmd_table = {
-        c = "gcc " .. file .. " && " .. "./a.out" .. " && rm ./a.out",
-        cpp = "g++ -std=c++17  " .. file .. " && " .. "./a.out" .. " && rm ./a.out",
+        c = "gcc -lm " .. file .. " && " .. "./a.out" .. " && rm ./a.out",
+        cpp = "g++ -std=c++17 " .. file .. " && " .. "./a.out" .. " && rm ./a.out",
         haskell = "ghc -dynamic "
             .. file
             .. " && ./"

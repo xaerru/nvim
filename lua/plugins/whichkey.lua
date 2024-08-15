@@ -23,7 +23,7 @@ local default_wk = {
                 name = "git",
                 l = { "<CMD>lua require('terminal').lazygit()<CR>", "lazygit" },
                 R = { "<cmd>lua require'gitsigns'.reset_buffer()<CR>", "Reset Buffer" },
-                b = {"<cmd>lua require'gitsigns'.blame_line(full=true)<CR>","Blame Line"},
+                b = {"<cmd>lua require'gitsigns'.blame_line{full=true}<CR>","Blame Line"},
                 p = {"<cmd>lua require'gitsigns'.preview_hunk()<CR>","Preview Hunk"},
                 r = {"<cmd>lua require'gitsigns'.reset_hunk()<CR>","Reset Hunk"},
                 s = {"<cmd>lua require'gitsigns'.stage_hunk()<CR>","Stage Hunk"},
